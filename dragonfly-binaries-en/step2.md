@@ -32,7 +32,7 @@ mkdir -p /etc/dragonfly/ && \
 
 ip=${IP:-$(hostname -i)} && \
 
-sed "s,__IP__,$ip," template/cdn.template.yaml > /etc/dragonfly/cdn.yaml && \
+sed "s,__IP__,$ip," template/seed-peer.template.yaml > /etc/dragonfly/seed-peer.yaml && \
 sed "s,__IP__,$ip," template/dfget.template.yaml > /etc/dragonfly/dfget.yaml && \
 sed "s,__IP__,$ip," template/scheduler.template.yaml > /etc/dragonfly/scheduler.yaml && \
 sed "s,__IP__,$ip," template/manager.template.yaml > /etc/dragonfly/manager.yaml
@@ -46,7 +46,7 @@ Startup manager
 
 Startup seed peer
 
-sed "s,__IP__,$ip," template/seed-peer.template.yaml > /etc/dragonfly/seed-peer.yaml && \
+`chmod +x /opt/dragonfly/dfget && nohup /opt/dragonfly/dfget daemon &`{{execute T1}}
 
 Startup scheduler
 
