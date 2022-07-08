@@ -1,22 +1,18 @@
-### View Docker version and  Docker Compose version
+### 查看 Docker 版本和 Docker Compose 版本
 
 `docker version`{{execute T1}}
 
 `docker-compose version`{{execute T1}}
 
-Wait for clone success.
-
-### Get Local ip
+### 获取本机ip
 
 `export IP=$(hostname -I | cut -d' ' -f1)`{{execute T1}}
 
-### Pull MySQL Redis Nginx images by Docker Compose
+### 拉取依赖的 MySQL Redis Nginx 镜像
 
 `docker-compose pull`{{execute T1}}
 
-### Modify Docker Registry
-
-Modify Docker Daemon Config file
+### 修改 Docker Registry
 
 ```sh
 cat << EOF > /etc/docker/daemon.json
@@ -29,11 +25,11 @@ cat << EOF > /etc/docker/daemon.json
 EOF
 ```{{execute T1}}
 
-Restart Docker Service
+重启 Docker 服务
 
 `service docker restart`{{execute T1}}
 
-### Startup MySQL Redis Nginx by Docker Compose
+### 启动 MySQL Redis Nginx 服务
 
 `docker-compose up -d `{{execute T1}}
 

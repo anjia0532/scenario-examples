@@ -1,20 +1,20 @@
 {
-  "title": "Dragonfly Binaries guide",
-  "description": "Dragonfly Binaries guide",
+  "title": "Dragonfly 使用二进制安装教程",
+  "description": "Dragonfly 使用二进制安装教程",
   "difficulty": "Beginner",
   "time": "10 minutes",
   "details": {
     "steps": [
       {
-        "title": "Initializing",
+        "title": "初始化环境",
         "text": "step1.md"
       },
       {
-        "title": "Download the precompiled binaries and Startup",
+        "title": "下载二进制文件并启动Dragonfly",
         "text": "step2.md"
       },
       {
-        "title": "Pull images by dfdaemon",
+        "title": "通过 Dfdaemon 拉取镜像",
         "text": "step3.md"
       }
     ],

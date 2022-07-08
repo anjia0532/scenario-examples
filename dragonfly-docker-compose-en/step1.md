@@ -4,15 +4,23 @@
 
 `docker-compose version`{{execute T1}}
 
+### Document
+
+Official document [Install Dragonfly by Docker Compose](https://d7y.io/docs/getting-started/quick-start/docker-compose/)
+
+### Clone Dragonfly repo
+
+`git clone https://github.com/dragonflyoss/Dragonfly2.git`{{execute T1}}
+
 Wait for clone success.
 
 ### Get Local ip
 
 `export IP=$(hostname -I | cut -d' ' -f1)`{{execute T1}}
 
-### Pull MySQL Redis Nginx images by Docker Compose
+### Startup Dragonfly by Docker Compose
 
-`docker-compose pull`{{execute T1}}
+`cd Dragonfly2/deploy/docker-compose/ && docker-compose pull`{{execute T1}}
 
 ### Modify Docker Registry
 
@@ -33,8 +41,17 @@ Restart Docker Service
 
 `service docker restart`{{execute T1}}
 
-### Startup MySQL Redis Nginx by Docker Compose
+### Startup Dragonfly
 
-`docker-compose up -d `{{execute T1}}
+Startup
 
-`docker-compose ps `{{execute T1}}
+`./run.sh`{{execute T1}}
+
+View status
+
+`docker-compose ps`{{execute T1}}
+
+### Access Dragonfly Manager Console Web UI
+
+Click `Manager Console UI` dashboard or this link [Manager Console UI]({{TRAFFIC_HOST1_8080}})
+
