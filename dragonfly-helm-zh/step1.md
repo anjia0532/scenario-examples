@@ -1,10 +1,3 @@
-
-### 通过 minikube 启动 Kubernetes 集群
-
-`minikube start`{{execute T1}}
-
-等待 Kubernetes 启动成功。
-
 ### 获取节点状态
 
 `kubectl get nodes`{{execute T1}}

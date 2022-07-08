@@ -1,5 +1,5 @@
 
-拉取演示 demo 镜像，并且确保拉取完毕，在 Dragonfly CDN 没有缓存的情况下，拉取速度比较慢
+拉取演示 demo 镜像，并且确保拉取完毕，在 Dragonfly Seed Peer 没有缓存的情况下，拉取速度比较慢
 
 `time docker pull nginx`{{execute T1}}
 

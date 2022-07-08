@@ -20,7 +20,7 @@
 
 ### 使用 Docker Compose 拉取镜像
 
-`cd Dragonfly2/deploy/docker-compose/ && docker-compose pull`{{execute T1}}
+`cd Dragonfly2/deploy/docker-compose/ && docker-compose up --no-start`{{execute T1}}
 
 ### 配置 Docker Registry
 
@@ -29,10 +29,11 @@
 ```sh
 cat << EOF > /etc/docker/daemon.json
 {
-    "bip":"172.18.0.1/24",
-    "debug": true,
-    "storage-driver": "overlay",
-    "registry-mirrors": ["http://127.0.0.1:65001","https://mirror.gcr.io","https://docker-mirror.killer.sh"]
+  "exec-opts": ["native.cgroupdriver=systemd"],
+  "log-driver": "json-file",
+  "storage-driver": "overlay2",
+  "registry-mirrors": ["http://127.0.0.1:65001","https://mirror.gcr.io","https://docker-mirror.killer.sh"],
+  "mtu": 1454
 }
 EOF
 ```{{execute T1}}

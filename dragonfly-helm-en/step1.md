@@ -1,10 +1,3 @@
-
-### Startup Kubernetes by minikube
-
-`minikube start`{{execute T1}}
-
-Wait for Kubernetes startup.
-
 ### Get Nodes status
 
 `kubectl get nodes`{{execute T1}}

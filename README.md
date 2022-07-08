@@ -1,8 +1,8 @@
 # Interactive Killercoda Scenarios
 
-[![Killercoda](http://shields.katacoda.com/katacoda/d7y/count.svg)](https://killercoda.com/d7y/)
+[![Killercoda](http://shields.katacoda.com/katacoda/dragonfly/count.svg)](https://killercoda.com/dragonfly/)
 
-Visit [killercoda/d7y](https://killercoda.com/d7y/) to view the profile and interactive scenarios.
+Visit [killercoda/dragonfly](https://killercoda.com/dragonfly/) to view the profile and interactive scenarios.
 
 ## Writing Scenarios
 
