@@ -1,7 +1,11 @@
-# Killercoda Scenario Examples
+# Interactive Killercoda Scenarios
 
-See these in action here: https://killercoda.com/examples
+[![Killercoda](http://shields.katacoda.com/katacoda/d7y/count.svg)](https://killercoda.com/d7y/)
 
-Documentation: https://killercoda.com/creators
+Visit [killercoda/d7y](https://killercoda.com/d7y/) to view the profile and interactive scenarios.
 
-For grouping scenarios into courses check https://github.com/killercoda/scenario-examples-courses
+## Writing Scenarios
+
+Visit [katacoda document](https://killercoda.com/creators/) to learn more about creating Katacoda scenarios.
+
+For examples, visit [github.com/killercoda/scenario-examples](https://github.com/killercoda/scenario-examples/).
