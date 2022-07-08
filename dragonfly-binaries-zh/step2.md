@@ -47,7 +47,7 @@ sed "s,__IP__,$ip," template/manager.template.yaml > /etc/dragonfly/manager.yaml
 
 `chmod +x /opt/dragonfly/scheduler  && nohup /opt/dragonfly/scheduler &`{{execute T1}}
 
-启动 dfdaemon
+启动 seed peer
 
 `chmod +x /opt/dragonfly/dfget && nohup /opt/dragonfly/dfget daemon &`{{execute T1}}
 
@@ -64,6 +64,24 @@ root        4372    4370  0 00:36 pts/0    00:00:00 /opt/dragonfly/dfget daemon
 root        5099    5097  0 00:37 pts/0    00:00:00 /opt/dragonfly/scheduler
 root       13741    1146  0 00:39 pts/0    00:00:00 grep --color=auto dragonfly
 ```
+
+### 编译 Manager Console Web UI
+
+直接复制，快一点
+
+`docker run --entrypoint /bin/sh -it --rm -v /opt/dragonfly/:/tmp dragonflyoss/manager:v${version} -c "mv /opt/dragonfly/manager/console/dist /tmp/"`{{execute T1}}
+
+或者自己编译
+
+`git clone https://github.com/dragonflyoss/console`{{execute T1}}
+
+```sh
+docker run --workdir=/build \
+        --rm -v /root/console/:/build node:12-alpine \
+        sh -c "npm install --loglevel warn --progress false && npm run build"
+```{{execute T1}}
+
+`cp -R /root/console/dist /opt/dragonfly/dist`{{execute T1}}
 
 ### 访问 Dragonfly Manager Console Web UI
 

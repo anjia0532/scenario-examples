@@ -47,7 +47,7 @@ Startup scheduler
 
 `chmod +x /opt/dragonfly/scheduler  && nohup /opt/dragonfly/scheduler &`{{execute T1}}
 
-Startup dfdaemon
+Startup seed peer
 
 `chmod +x /opt/dragonfly/dfget && nohup /opt/dragonfly/dfget daemon &`{{execute T1}}
 
