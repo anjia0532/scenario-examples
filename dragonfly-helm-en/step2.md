@@ -26,7 +26,7 @@ Official document [Install Dragonfly by helm charts](https://d7y.io/docs/setup/i
 
 #### Fixed dragonfly-manager service `NodePort`
 
-`kubectl -n dragonfly-system patch svc dragonfly-manager --type merge -p '{"spec":{"ports": [{"name": "http-rest","nodePort": 31234,"port": 8080,"protocol": "TCP","targetPort": 8080}]}}'`{{execute T1}}
+`kubectl -n dragonfly-system expose --type=NodePort deployment dragonfly-manager --port 8080 --name dragonfly-manager-public  --overrides '{ "apiVersion": "v1","spec":{"ports": [{"port":8080,"protocol":"TCP","targetPort":8080,"nodePort":31234}]}}'`{{execute T1}}
 
 #### Access Dragonfly Manager Console Web UI
 

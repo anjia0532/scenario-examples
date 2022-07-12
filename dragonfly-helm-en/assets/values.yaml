@@ -982,8 +982,7 @@ redis:
     persistence:
       enabled: false
   replica:
-    replica:
-      replicaCount: 0
+    replicaCount: 1
     persistence:
       enabled: false
 

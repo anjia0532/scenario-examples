@@ -25,7 +25,7 @@
 
 #### 固定 dragonfly-manager service 的 `NodePort`
 
-`kubectl -n dragonfly-system patch svc dragonfly-manager --type merge -p '{"spec":{"ports": [{"name": "http-rest","nodePort": 31234,"port": 8080,"protocol": "TCP","targetPort": 8080}]}}'`{{execute T1}}
+`kubectl -n dragonfly-system expose --type=NodePort deployment dragonfly-manager --port 8080 --name dragonfly-manager-public  --overrides '{ "apiVersion": "v1","spec":{"ports": [{"port":8080,"protocol":"TCP","targetPort":8080,"nodePort":31234}]}}'`{{execute T1}}
 
 #### 访问 Dragonfly Manager Console Web UI
 
