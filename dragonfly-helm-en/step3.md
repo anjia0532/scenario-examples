@@ -1,7 +1,7 @@
 
 Pull demo images and wait it done
 
-`time docker pull registry.cn-hangzhou.aliyuncs.com/alidragonfly/supernode:0.2.0`{{execute T1}}
+`time k3s crictl pull registry.cn-hangzhou.aliyuncs.com/alidragonfly/supernode:0.2.0`{{execute T1}}
 
 Watching dfdaemon log
 
@@ -9,11 +9,11 @@ Watching dfdaemon log
 
 Remove demo image
 
-`docker rmi registry.cn-hangzhou.aliyuncs.com/alidragonfly/supernode:0.2.0`{{execute T1}}
+`k3s crictl rmi registry.cn-hangzhou.aliyuncs.com/alidragonfly/supernode:0.2.0`{{execute T1}}
 
 Rerun the pull command line
 
-`time docker pull registry.cn-hangzhou.aliyuncs.com/alidragonfly/supernode:0.2.0`{{execute T1}}
+`time k3s crictl pull registry.cn-hangzhou.aliyuncs.com/alidragonfly/supernode:0.2.0`{{execute T1}}
 
 Pickup `peer task done` log from `/var/log/dragonfly/daemon/core.log`
 

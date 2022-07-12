@@ -15,22 +15,23 @@ sudo chmod 644 $HOME/.kube/config
 输出如下信息
 
 ```
-NAME       STATUS   ROLES    AGE   VERSION
-minikube   Ready    master   51s   v1.17.3
+NAME     STATUS   ROLES                  AGE     VERSION
+ubuntu   Ready    control-plane,master   5m27s   v1.23.8+k3s1
 ```
 
 ### 安装 Helm
 
 下载 helm 并且安装到 `/usr/local/bin/`
 
-`wget https://get.helm.sh/helm-v3.8.1-linux-amd64.tar.gz`{{execute T1}}
-
-`tar -zxvf helm-v3.8.1-linux-amd64.tar.gz && mv linux-amd64/helm /usr/local/bin/helm`{{execute T1}}
-
 ```shell
-kubectl -n kube-system create serviceaccount tiller &&\
-kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller &&\
-helm init --service-account tiller
+
+wget https://get.helm.sh/helm-v3.8.1-linux-amd64.tar.gz
+
+tar -zxvf helm-v3.8.1-linux-amd64.tar.gz && mv linux-amd64/helm /usr/local/bin/helm
+
+kubectl -n kube-system create serviceaccount tiller
+ 
+kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller 
 ```{{execute T1}}
 
 `helm --help`{{execute T1}}

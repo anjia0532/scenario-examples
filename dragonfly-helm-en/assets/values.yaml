@@ -31,7 +31,7 @@ containerRuntime:
   docker:
     # -- Enable docker support
     # Inject ca cert into /etc/docker/certs.d/, Refer: https://docs.docker.com/engine/security/certificates/.
-    enable: true
+    enable: false
     # -- Restart docker daemon to redirect traffic to dfdaemon
     # When containerRuntime.docker.restart=true, containerRuntime.docker.injectHosts and containerRuntime.registry.domains is ignored.
     # If did not want restart docker daemon, keep containerRuntime.docker.restart=false and containerRuntime.docker.injectHosts=true.
@@ -80,18 +80,18 @@ containerRuntime:
     #   1. when config_path is enabled in ${containerRuntime.containerd.configPathDir}/config.toml, inject containerRuntime.containerd.registries into config_path,
     #   2. when containerRuntime.containerd.injectConfigPath=true, inject config_path into ${containerRuntime.containerd.configPathDir}/config.toml and inject containerRuntime.containerd.registries into config_path,
     #   3. when not config_path in ${containerRuntime.containerd.configPathDir}/config.toml and containerRuntime.containerd.injectConfigPath=false, inject dfdaemon.config.proxy.registryMirror.url as registry mirror and restart containerd.
-    enable: false
+    enable: true
     # -- Config path for multiple registries
     # By default, init container will check ${containerRuntime.containerd.configPathDir}/config.toml, whether is config_path configured,
     # if not, init container will just add the dfdaemon.config.proxy.registryMirror.url for registry mirror.
     # When configPath is true, init container will inject config_path=${containerRuntime.containerd.configPathDir}/certs.d and configure all registries.
-    injectConfigPath: false
+    injectConfigPath: true
     # -- Custom config path directory, default is /etc/containerd
     # e.g. rke2 generator config path is /var/lib/rancher/rke2/agent/etc/containerd/config.toml, docs: https://github.com/rancher/rke2/blob/master/docs/advanced.md#configuring-containerd
-    configPathDir: /etc/containerd
+    configPathDir: /var/lib/rancher/k3s/agent/etc/containerd
     # -- Custom config file name, default is config.toml
     # This is workaround for kops provider, see https://github.com/kubernetes/kops/pull/13090 for more details
-    configFileName: ""
+    configFileName: "config.toml"
     # -- Credencials for authenticating to private registries
     # By default this is aplicable for single registry mode, for reference see docs: https://github.com/containerd/containerd/blob/v1.6.4/docs/cri/registry.md#configure-registry-credentials
     injectRegistryCredencials:
@@ -106,6 +106,7 @@ containerRuntime:
       - "https://ghcr.io"
       - "https://quay.io"
       - "https://harbor.example.com:8443"
+      - "https://registry.cn-hangzhou.aliyuncs.com"
   # -- [Experimental] CRI-O support
   crio:
     # -- Enable CRI-O support
