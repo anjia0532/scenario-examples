@@ -54,6 +54,6 @@
     "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "kubernetes-k3s-1node-ubuntu20.04"
+    "imageid": "ubuntu"
   }
 }
